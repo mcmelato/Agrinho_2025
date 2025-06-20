@@ -1078,6 +1078,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 field.removeAttribute('aria-describedby');
                 field.classList.remove('is-invalid'); // Remove classe de erro visual
             });
+
+            if (!isValid) {
+                setLoadingState(false);
+                const firstInvalidField = contactForm.querySelector('.is-invalid');
+                if (firstInvalidField) {
+                    firstInvalidField.focus();
+                }
+                displayModal('Por favor, corrija os erros no formulário.', 'error');
+                return;
+            }
             
             setLoadingState(true); // Mostra spinner e desabilita botão
             
