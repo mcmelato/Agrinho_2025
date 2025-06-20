@@ -453,28 +453,21 @@
         </section>
 
         <!-- Seção de Contato -->
+        <section id="contato" class="content-section" tabindex="0" aria-label="Formulário de contato e informações de contato" data-reveal data-delay="30">
+            <h2><i class="fas fa-envelope"></i> Contato</h2>
+            <p>Quer saber mais sobre a conexão campo-cidade, enviar sua opinião ou colaborar com o projeto Agrinho 2025? Use o formulário abaixo ou envie um e-mail para: <a href="mailto:michel.melato@escola.pr.gov.br" aria-label="Enviar e-mail para Michel Melato">michel.melato@escola.pr.gov.br</a></p>
 
-<section id="contato" class="content-section" aria-labelledby="titulo-contato">
-<p>Quer saber mais sobre a conexão campo-cidade, enviar sua opinião ou colaborar com o projeto Agrinho 2025? Use o formulário abaixo ou envie um e-mail para: <a href="mailto:michel.melato@escola.pr.gov.br" aria-label="Enviar e-mail para Michel Melato">michel.melato@escola.pr.gov.br</a></p>
-<h2><i class="fas fa-envelope"></i> Contato</h2>   
-  <h2 id="titulo-contato">Fale com a gente</h2>
-  <form action="https://formsubmit.co/74228d8359535eb93389c4261fda755d" method="POST" class="form-contato">
-    <label for="nome">Seu nome:</label>
-    <input type="text" id="nome" name="name" required />
+            <form id="contact-form" action="https://formsubmit.co/michel.melato@escola.pr.gov.br" class="formulario-contato" method="POST">
+                <div class="form-row">
+                  <input type="text" name="nome" placeholder="Seu nome" required />
+                  <input type="email" name="email" placeholder="Seu e-mail" required />
+                </div>
+                <textarea name="mensagem" rows="5" placeholder="Escreva sua mensagem" required></textarea>
+                <button type="submit">Enviar Mensagem</button>
+              </form>
 
-    <label for="email">Seu e-mail:</label>
-    <input type="email" id="email" name="email" required />
-
-    <label for="mensagem">Sua mensagem:</label>
-    <textarea id="mensagem" name="message" rows="5" required></textarea>
-
-    <!-- Proteções extras -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
-    
-    <button type="submit">Enviar Mensagem</button>
-  </form>
-</section>
+            <div id="contact-feedback" aria-live="polite" tabindex="0" hidden></div>
+        </section>
     </main> 
     <!-- Fim do Conteúdo Principal -->
 
