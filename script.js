@@ -1065,128 +1065,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-// ===================================
-    //  PREVENIR REFRESH DO FORMULÁRIO DE CONTATO
-    // ===================================
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(event) {
-        // Impede o comportamento padrão de recarregar a página
-
-        // A linha abaixo foi REMOVIDA para evitar a mensagem de alerta.
-        // alert('Mensagem enviada com sucesso! (Este é um formulário de demonstração e não envia e-mail real.)');
-        
-        // Se você quiser, pode adicionar alguma lógica aqui para feedback visual sutil,
-        // como mudar o texto do botão para "Enviado!" por alguns segundos,
-        // ou exibir uma pequena mensagem dentro da página.
-        // Por exemplo:
-        // const submitButton = this.querySelector('button[type="submit"]');
-        // submitButton.textContent = 'Enviado!';
-        // submitButton.disabled = true;
-        // setTimeout(() => {
-        //   submitButton.textContent = 'Enviar Mensagem';
-        //   submitButton.disabled = false;
-        // }, 3000);
-
-        this.reset(); // Limpa o formulário após "enviar"
-      });
-    }
-// No seu script.js ou dentro da tag <script> existente no final do index.html
-(function() {
-    const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-contactForm.addEventListener('submit', function(event) {
-event.preventDefault(); // Evita o recarregamento da página
-
-      const submitButton = this.querySelector('button[type="submit"]');
-      const originalButtonText = submitButton.textContent;
-
-      submitButton.textContent = 'Enviando...';
-      submitButton.disabled = true;
-      submitButton.style.backgroundColor = 'gray'; // Altera cor enquanto envia
-
-      // Simula o envio (você pode ajustar o tempo)
-      setTimeout(() => {
-        submitButton.textContent = 'Mensagem Enviada!';
-        submitButton.style.backgroundColor = 'var(--color-primary-dark)'; // Volta para cor normal ou cor de sucesso
-        // O botão permanece desabilitado ou exibe uma mensagem de sucesso
-        // ou volta ao normal após um tempo para permitir novo envio
-        setTimeout(() => {
-          submitButton.textContent = originalButtonText;
-          submitButton.disabled = false;
-          submitButton.style.backgroundColor = 'var(--color-primary)';
-          this.reset(); // Limpa o formulário após "enviar"
-        }, 2000); // Volta ao normal após 2 segundos de "Enviado!"
-      }, 1500); // "Enviando..." por 1.5 segundos
-    });
-  }
-})();
-  };
-
-  // Botão de Voltar ao Topo
-const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    scrollToTopBtn.style.display = "block";
-  } else {
-    scrollToTopBtn.style.display = "none";
-  }
-});
-
-scrollToTopBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-document.querySelectorAll('.quiz-nivel').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const nivel = btn.dataset.nivel;
-    carregarQuiz(nivel);
-  });
-});
-
-// script.js — Envio via AJAX para Formspree
-document.addEventListener("DOMContentLoaded", function () {
-  const contactForm = document.getElementById("contact-form");
-  if (!contactForm) return;
-
-  contactForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-
-    submitButton.textContent = "Enviando...";
-    submitButton.disabled = true;
-
-    try {
-      const response = await fetch("https://formspree.io/f/xeokarrj", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
-      });
-
-      if (response.ok) {
-        contactForm.innerHTML = 
-          <div class="mensagem-sucesso" style="text-align: center; padding: 2rem;">
-            <h3>✅ Obrigado!</h3>
-            <p>Sua mensagem foi enviada com sucesso.</p>
-          </div>
-        ;
-      } else {
-        alert("❌ Erro ao enviar. Verifique o ID do formulário ou tente novamente.");
-        submitButton.disabled = false;
-        submitButton.textContent = originalText;
-      }
-    } catch (error) {
-      alert("❌ Erro de conexão. Verifique sua internet.");
-      submitButton.disabled = false;
-      submitButton.textContent = originalText;
-    }
-  });
-});
-
         contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
 
@@ -1295,7 +1173,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setLoadingState(false); // Esconde spinner e reabilita botão (sempre, no final da operação)
             }
         });
-})
+    }
 
     // --- Animações de Revelação (data-reveal) ---
     // Este observer é agora principalmente para o efeito 'revealed' e para renderizar o gráfico na seção 'impacto'
@@ -1470,4 +1348,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-;
+});
